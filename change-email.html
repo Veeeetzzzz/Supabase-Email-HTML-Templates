@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Email Change - SomeWebsite.com</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .logo-text {
+            color: #4338ca;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        h1 {
+            color: #1f2937;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        p {
+            color: #4b5563;
+            font-size: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4338ca;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 24px 0;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #3730a3;
+        }
+        .email-change-box {
+            background-color: #f3f4f6;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        .email {
+            font-family: monospace;
+            font-size: 15px;
+            color: #4338ca;
+            font-weight: 500;
+        }
+        .arrow {
+            display: block;
+            color: #9ca3af;
+            font-size: 20px;
+            margin: 12px 0;
+        }
+        .warning-box {
+            background-color: #fff7ed;
+            border: 1px solid #ffedd5;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 24px 0;
+        }
+        .footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <a href="{{ .SiteURL }}" class="logo-text">SomeWebsite.com</a>
+        </div>
+        
+        <h1>Confirm Email Change</h1>
+        
+        <p>We received a request to change the email address associated with your SomeWebsite.com account.</p>
+        
+        <div class="email-change-box">
+            <p style="margin: 0;">Current email:</p>
+            <div class="email">{{ .Email }}</div>
+            <div class="arrow">↓</div>
+            <p style="margin: 0;">New email:</p>
+            <div class="email">{{ .NewEmail }}</div>
+        </div>
+
+        <div class="warning-box">
+            <p style="margin: 0;">⚠️ This change will affect how you sign in to your account</p>
+            <p style="margin: 8px 0 0 0; font-size: 14px;">After confirmation, you'll need to use your new email address to log in</p>
+        </div>
+        
+        <p style="text-align: center;">
+            <a href="{{ .ConfirmationURL }}" class="button">Confirm Email Change</a>
+        </p>
+        
+        <p style="font-size: 14px;">If the button doesn't work, copy and paste this link into your browser:</p>
+        <p style="word-break: break-all; font-size: 14px;">{{ .ConfirmationURL }}</p>
+        
+        <div class="footer">
+            <p>Didn't request this change? Please contact our support team immediately or secure your account by changing your password.</p>
+            <p>This link will expire in 24 hours for security reasons.</p>
+            <p><a href="{{ .SiteURL }}" style="color: #4338ca; text-decoration: none;">Visit SomeWebsite.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
